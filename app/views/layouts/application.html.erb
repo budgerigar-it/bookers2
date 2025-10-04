@@ -39,7 +39,15 @@
 
     <div class="flash-messages">
       <% flash.each do |key, message| %>
-        <div class="flash <%= key %>"><%= message %></div>
+        <% if key == "notice" %>
+          <div class="alert alert-success text-center">
+            <%= message %>
+          </div>
+        <% elsif key == "alert" %>
+          <div class="alert alert-danger text-center">
+            <%= message %>
+          </div>
+        <% end %>
       <% end %>
     </div>
 
